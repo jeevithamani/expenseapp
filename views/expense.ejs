@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Expenses List</title>
+        <link href="/assets/styles.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/assets/deleterequest.js"></script>
+    </head>
+    <body>
+        <h1>Add Expense</h1>
+        <div>
+            <form id="add-form" method="POST" action="/addexpense">
+                <table>
+                <tr>
+                    <td>Expense Item</td>
+                    <td><input type="text" name="description" placeholder="ex: Groceries, etc" required/></td>
+                </tr>
+                <tr>
+                    <td>Amount spent</td>
+                    <td><input type="text" name="amount" placeholder="ex: 100, 50, etc" required/></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="date" name="date" required/></td>
+                </tr>
+                <tr><td>Expense type</td>
+                    <td><select name="type">
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Education">Education</option>
+                        <option value="Others">Others</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td><button type="submit">Add Expense</button></td></tr>
+                </table>
+            </form>
+            <h1>List of expenses</h1>
+            <table>
+                <tr>
+                    <th>Expense Item</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+                <% for (var i = 0; i < expenses.length; i++ ) { %>
+                    <tr id='item-list' class="test" data-value="<%=expenses[i]._id%>">
+                    <td><%=expenses[i].description%></td>
+                    <td><%=expenses[i].amount%></td>
+                    <td><%=expenses[i].type%></td>
+                    <td><%=expenses[i].date.toDateString()%></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>
