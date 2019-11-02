@@ -13,7 +13,7 @@
   "dependencies": {
     "expect": "23.6.0",
     "mocha": "5.2.0",
-    "mongoose": "5.4.5"
+    "mongoose": "5.7.5"
   },
   "devDependencies": {
     "nyc": "13.1.0",
